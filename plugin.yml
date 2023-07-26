@@ -16,9 +16,9 @@ commands:
   feed:
     description: Fill Your Hunger
     permission: gqbocore.feed
-  hunger:
-    description: Hunger
-    permission: gqbocore.hunger
+  # hunger:
+  #   description: Hunger
+  #   permission: gqbocore.hunger
   cc:
     description: Clear Chat
     permission: gqbocore.cc

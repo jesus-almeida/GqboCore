@@ -150,7 +150,7 @@ class Main extends PluginBase implements Listener
                 $s->sendMessage("");
             } elseif (isset($args[0]) && strtolower($args[0]) == "cmds") {
                 $s->sendMessage("");
-            } elseif (isset($args[0]) && strtolower($args[0]) == "") {
+            } elseif (isset($args[0]) && strtolower($args[0]) == "perms") {
                 $s->sendMessage("");
             }
         }
