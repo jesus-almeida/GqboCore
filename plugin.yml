@@ -1,0 +1,83 @@
+name: GqboCore
+author: xGqboo
+version: 1.0 Beta
+api: [2.0.0]
+main: xGqboo\GqboCore\Main
+description: GqboCore - Basic Core - By xGqboo, My Discord xgqboo
+website: https://github.com/xGqboo
+
+commands:
+  gcore:
+    description: GqboCore Information
+    aliases: [core, gqbocore]
+  heal:
+    description: Fill your Life
+    permission: gqbocore.heal
+  feed:
+    description: Fill Your Hunger
+    permission: gqbocore.feed
+  hunger:
+    description: Hunger
+    permission: gqbocore.hunger
+  cc:
+    description: Clear Chat
+    permission: gqbocore.cc
+  ci:
+    description: Clear Inventory and Potion Effects
+    permission: gqbocore.ci
+  ad:
+    description: Give An Announcement
+    permission: gqbocore.ad
+  info:
+    description: Info
+  tags:
+    description: Tags
+  rules:
+    description: Rules
+  social:
+    description: Social
+  online:
+    description: Online
+  day:
+    description: Day
+    permission: gqbocore.day
+  night:
+    description: Night
+    permission: gqbocore.night
+  lobby:
+    description: Lobby
+  fly:
+    description: Fly
+    permission: gqbocore.fly
+
+permissions:
+  gqbocore.heal:
+    description: Heal Command Permission
+    default: op
+  gqbocore.feed:
+    description: Feed Command Permission
+    default: op
+  gqbocore.hunger:
+    description: Hunger Command Permission
+    default: op
+  gqbocore.cc:
+    description: Clear Chat Command Permission
+    default: op
+  gqbocore.ci:
+    description: Clear Inventory and Effects Command Permission
+    default: op
+  gqbocore.ad:
+    description: Ad Command Permission
+    default: op
+  gqbocore.id:
+    description: ItemID Use Permission
+    default: op
+  gqbocore.day:
+    description: Day Command Permission
+    default: op
+  gqbocore.night:
+    description: Night Command Permission
+    default: op
+  gqbocore.fly:
+    description: Fly Command Permission
+    default: op

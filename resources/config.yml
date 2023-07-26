@@ -1,0 +1,12 @@
+---
+# EN: Server MOTD.
+# ES: MOTD del servidor.
+motd: "§l§o§bxGqboo §r§8- §l§o§fTests§r§f\n§o§l§aONLINE!"
+
+# EN: Message displayed when a player enters the server (use {name} to display the player's name).
+# ES: Mensaje que sale cuando un jugador entra al servidor. (Usa {name} para mostrar el nombre del jugador).
+join-msg: "§l§8[§r§a+§l§8] §r§b{name}"
+
+# EN: Message displayed when a player exits the server (use {name} to display the player's name).
+# ES: Mensaje que sale cuando un jugador sale del servidor. (Usa {name} para mostrar el nombre del jugador).
+quit-msg: "§l§8[§r§c-§l§8] §r§b{name}"
