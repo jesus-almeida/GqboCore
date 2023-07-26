@@ -214,11 +214,6 @@ class Main extends PluginBase implements Listener
         }
         // Clear Inventory And Potion Effects Command
         if (strtolower($cmd->getName() == "ci")) {
-            if (!$s->hasPermission("gqbocore.ci")) {
-                $s->sendMessage($this->prefix . $this->noperm);
-                return false;
-            }
-
             if (!$s instanceof Player) {
                 $s->sendMessage($this->prefix . "§cThis command can only be executed by players!");
                 return false;

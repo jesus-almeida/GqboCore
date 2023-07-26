@@ -24,7 +24,6 @@ commands:
     permission: gqbocore.cc
   ci:
     description: Clear Inventory and Potion Effects
-    permission: gqbocore.ci
   ad:
     description: Give An Announcement
     permission: gqbocore.ad
@@ -62,9 +61,6 @@ permissions:
     default: op
   gqbocore.cc:
     description: Clear Chat Command Permission
-    default: op
-  gqbocore.ci:
-    description: Clear Inventory and Effects Command Permission
     default: op
   gqbocore.ad:
     description: Ad Command Permission
