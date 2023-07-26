@@ -54,16 +54,6 @@ class Main extends PluginBase implements Listener
 
         $this->getServer()->getNetwork()->setName(($this->config->get("motd")));
 
-        $author = $this->getDescription()->getAuthors();
-        if (array_shift($author) !== base64_decode('eEdxYm9v')) {
-            $this->getServer()->getLogger()->critical(base64_decode('W0dxYm9Db3JlXSBQbHVnaW4gZmFsc2lmaWNhZG8uIERlc2FiaWxpdGFuZG8h'));
-            Server::getInstance()->getPluginManager()->disablePlugin($this);
-            return;
-        }
-
-        @mkdir($this->getDataFolder());
-        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
         $this->getServer()->getLogger()->info($this->prefix . "§aPlugin Enabled!");

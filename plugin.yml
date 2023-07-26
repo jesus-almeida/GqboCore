@@ -3,7 +3,7 @@ author: xGqboo
 version: 1.0 Beta
 api: [2.0.0]
 main: xGqboo\GqboCore\Main
-description: GqboCore - Basic Core - By xGqboo, My Discord xgqboo
+description: GqboCore - Basic Core - By xGqboo - My Discord xgqboo
 website: https://github.com/xGqboo
 
 commands:
