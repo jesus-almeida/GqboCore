@@ -46,23 +46,26 @@ class Main extends PluginBase implements Listener
     public $prefix = "§8[§l§bG§fC§r§8]§f ";
     public $noperm = "§cYou do not have permission yo use this command!";
 
+    # Plugin Enabled
     public function onEnable()
     {
+        // Config
         $this->saveResource("config.yml");
         @mkdir($this->getDataFolder());
         $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
 
+        // Server MOTD
         $this->getServer()->getNetwork()->setName(($this->config->get("motd")));
-
+        // Register Events
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-
-        $this->getServer()->getLogger()->info($this->prefix . "§aPlugin Enabled!");
 
         $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "time set 200");
 
         $this->getServer()->loadLevel("world1");
+        // Plugin Enabled Message
+        $this->getServer()->getLogger()->info($this->prefix . "§aPlugin Enabled!");
     }
-
+    # Players Login
     public function onLogin(PlayerLoginEvent $event)
     {
         $player = $event->getPlayer();
@@ -70,7 +73,7 @@ class Main extends PluginBase implements Listener
         $level = $this->getServer()->getDefaultLevel();
         $player->teleport($level->getSafeSpawn());
     }
-
+    # Players Join
     public function onJoin(PlayerJoinEvent $event)
     {
         $player = $event->getPlayer();
@@ -83,7 +86,7 @@ class Main extends PluginBase implements Listener
         $player->setHealth(20);
         $player->setFood(20);
     }
-
+    # Players Quit
     public function onQuit(PlayerQuitEvent $event)
     {
         $player = $event->getPlayer();
@@ -93,7 +96,7 @@ class Main extends PluginBase implements Listener
         $event->setQuitMessage("");
         $this->getServer()->broadcastMessage($message);
     }
-
+    # Players Deaths
     public function onDeath(PlayerDeathEvent $event)
     {
         $event->setDeathMessage("");
@@ -115,7 +118,7 @@ class Main extends PluginBase implements Listener
             $level->addParticle($particle);
         }
     }
-
+    # Item ID
     public function ItemId(PlayerItemHeldEvent $event)
     {
         $player = $event->getPlayer();
@@ -124,7 +127,7 @@ class Main extends PluginBase implements Listener
             $player->sendTip("§l§b" . $event->getItem()->getId() . "§r§f:§l§b" . $event->getItem()->getDamage());
         }
     }
-
+    # Anti-Void
     public function onVoid(PlayerMoveEvent $event)
     {
         $player = $event->getPlayer();
@@ -138,23 +141,20 @@ class Main extends PluginBase implements Listener
             }
         }
     }
-
+    # Commands
     public function onCommand(CommandSender $s, Command $cmd, $label, array $args)
     {
-        if (strtolower($cmd->getName()) == "gcore") {
+        // GCore Command
+        if (strtolower($cmd->getName() == "gcore")) {
             if (count($args) == 0) {
-                $s->sendMessage("xd");
-            }
-
-            if (strtolower($args[0]) == "cmds") {
-                $s->sendMessage("gqcore cmd");
-            }
-
-            if (strtolower($args[0]) == "perms") {
-                $s->sendMessage("gqcore perms");
+                $s->sendMessage("");
+            } elseif (isset($args[0]) && strtolower($args[0]) == "cmds") {
+                $s->sendMessage("");
+            } elseif (isset($args[0]) && strtolower($args[0]) == "") {
+                $s->sendMessage("");
             }
         }
-
+        // Heal Command
         if (strtolower($cmd->getName()) === "heal") {
             if (!$s->hasPermission("gqbocore.heal")) {
                 $s->sendMessage($this->prefix . $this->noperm);
@@ -170,7 +170,7 @@ class Main extends PluginBase implements Listener
             $s->sendMessage($this->prefix . "§aYour life has been filled!");
             return true;
         }
-
+        // Feed Command
         if (strtolower($cmd->getName() == "feed")) {
             if (!$s->hasPermission("gqbocore.feed")) {
                 $s->sendMessage($this->prefix . $this->noperm);
@@ -186,8 +186,8 @@ class Main extends PluginBase implements Listener
             $s->sendMessage($this->prefix . "§aYour food has been refilled!");
             return true;
         }
-
-        if (strtolower($cmd->getName() == "hunger")) {
+        // Hunger Command (It was a test)
+        /*if (strtolower($cmd->getName() == "hunger")) {
             if (!$s->hasPermission("gqbocore.hunger")) {
                 $s->sendMessage($this->prefix . $this->noperm);
                 return false;
@@ -201,8 +201,8 @@ class Main extends PluginBase implements Listener
             $s->setFood(0);
             $s->sendMessage($this->prefix . "§aYour food has been refilled!");
             return true;
-        }
-
+        }*/
+        // ClearChat Command
         if (strtolower($cmd->getName() == "cc")) {
             if (!$s->hasPermission("gqbocore.cc")) {
                 $s->sendMessage($this->prefix . $this->noperm);
@@ -212,7 +212,7 @@ class Main extends PluginBase implements Listener
             $s->getServer()->broadcastMessage("§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f\n§f§f\n§f\n\n" . $this->prefix . "§aThe chat was deleted by the player: §l§b" . $s->getName());
             return true;
         }
-
+        // Clear Inventory And Potion Effects Command
         if (strtolower($cmd->getName() == "ci")) {
             if (!$s->hasPermission("gqbocore.ci")) {
                 $s->sendMessage($this->prefix . $this->noperm);
@@ -229,7 +229,7 @@ class Main extends PluginBase implements Listener
             $s->sendMessage($this->prefix . "§aCleaned your inventory and position effects!");
             return true;
         }
-
+        // Advertisement Command
         if (strtolower($cmd->getName() == "ad")) {
             if (!$s->hasPermission("gqbocore.ad")) {
                 $s->sendMessage($this->prefix . $this->noperm);
@@ -245,37 +245,37 @@ class Main extends PluginBase implements Listener
                 return false;
             }
         }
-
+        // Info Command
         if (strtolower($cmd->getName() == "info")) {
             $s->sendMessage("§f\n§f" . $this->prefix . "INFO . . .§f\n§f");
         }
-
+        // Tags Command
         if (strtolower($cmd->getName() == "tags")) {
             $s->sendMessage("§f\n§f" . $this->prefix . "TAGS . . .§f\n§f");
         }
-
+        // Rules Command
         if (strtolower($cmd->getName() == "rules")) {
             $s->sendMessage("§f\n§f" . $this->prefix . "RULES . . .§f\n§f");
         }
-
+        // Social Command
         if (strtolower($cmd->getName() == "social")) {
             $s->sendMessage("§f\n§f" . $this->prefix . "SOCIAL . . .§f\n§f");
         }
-
+        // Online Command
         if (strtolower($cmd->getName() == "online")) {
-            $s->sendMessage("§f\n§f" . $this->prefix . "ONLINE:" . count($this->getServer()->getOnlinePlayers()) . "§f\n§f");
+            $s->sendMessage("§f\n§f" . $this->prefix . "ONLINE: " . count($this->getServer()->getOnlinePlayers()) . "§f\n§f");
         }
-
+        // Day Command
         if (strtolower($cmd->getName() == "day")) {
             $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "time set day");
             $s->sendMessage($this->prefix . "Haz cambiado el tiempo a dia");
         }
-
+        // Night Command
         if (strtolower($cmd->getName() == "night")) {
             $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "time set night");
             $s->sendMessage($this->prefix . "Haz cambiado el tiempo a noche");
         }
-
+        // Lobby Command
         if (strtolower($cmd->getName()) === "lobby") {
             $defLevel = $this->getServer()->getDefaultLevel();
             if ($defLevel !== null) {
@@ -284,7 +284,7 @@ class Main extends PluginBase implements Listener
                 $s->sendMessage($this->prefix . "¡Bienvenido al lobby principal!");
             }
         }
-
+        // Fly Command
         if (strtolower($cmd->getName() == "fly")) {
             if (!$s->hasPermission("gqbocore.fly")) {
                 $s->sendMessage($this->prefix . $this->noperm);
@@ -297,22 +297,23 @@ class Main extends PluginBase implements Listener
             }
 
             if (count($args) == 0) {
-                $s->sendMessage("uso");
+                $s->sendMessage($this->prefix . "uso");
                 return false;
             } elseif (isset($args[0]) && strtolower($args[0]) == "off") {
                 $s->setAllowFlight(false);
-                $s->sendMessage("off");
+                $s->sendMessage($this->prefix . "off");
                 return true;
             } elseif (isset($args[0]) && strtolower($args[0]) == "on") {
                 $s->setAllowFlight(true);
-                $s->sendMessage("on");
+                $s->sendMessage($this->prefix . "on");
                 return true;
             }
         }
     }
-
+    # Plugin Disabled
     public function onDisable()
     {
+        // Message
         $this->getServer()->getLogger()->info($this->prefix . "§cPlugin Disabled!");
     }
 }
