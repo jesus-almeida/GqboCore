@@ -5,14 +5,16 @@
 
 ---
 
-## About
+### About
 
 - Name: **GqboCore**
 - Author: **xGqboo**
 - Version: **1.0 Beta**
 - API: **2.0.0**
 
-## Commands and Permissions
+---
+
+### Commands and Permissions
 
 - /gcore > GqboCore Informacion (Not completed).
 
@@ -51,6 +53,8 @@
 - /fly > Fly
 - Permission: gqbocore.fly
 
-## Other functions
+---
+
+### Other functions
 
 - 
