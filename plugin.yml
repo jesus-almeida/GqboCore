@@ -1,24 +1,23 @@
 name: GqboCore
 author: xGqboo
-version: 1.0 Beta
+version: 2.0
 api: [2.0.0]
 main: xGqboo\GqboCore\Main
-description: GqboCore - Basic Core - By xGqboo - My Discord xgqboo
+description: GqboCore - Basic Core - By xGqboo, My Discord xgqboo
 website: https://github.com/xGqboo
 
 commands:
   gcore:
     description: GqboCore Information
-    aliases: [core, gqbocore]
   heal:
     description: Fill your Life
     permission: gqbocore.heal
   feed:
     description: Fill Your Hunger
     permission: gqbocore.feed
-  # hunger:
-  #   description: Hunger
-  #   permission: gqbocore.hunger
+  hunger:
+    description: Hunger
+    permission: gqbocore.hunger
   cc:
     description: Clear Chat
     permission: gqbocore.cc

@@ -10,3 +10,4 @@ join-msg: "§l§8[§r§a+§l§8] §r§b{name}"
 # EN: Message displayed when a player exits the server (use {name} to display the player's name).
 # ES: Mensaje que sale cuando un jugador sale del servidor. (Usa {name} para mostrar el nombre del jugador).
 quit-msg: "§l§8[§r§c-§l§8] §r§b{name}"
+...
