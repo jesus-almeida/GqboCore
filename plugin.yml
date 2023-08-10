@@ -1,6 +1,6 @@
 name: GqboCore
 author: xGqboo
-version: 2.0
+version: 1.2
 api: [2.0.0]
 main: xGqboo\GqboCore\Main
 description: GqboCore - Basic Core - By xGqboo, My Discord xgqboo
@@ -21,6 +21,8 @@ commands:
   cc:
     description: Clear Chat
     permission: gqbocore.cc
+  ccme:
+    description: Clear Me Chat
   ci:
     description: Clear Inventory and Potion Effects
   ad:

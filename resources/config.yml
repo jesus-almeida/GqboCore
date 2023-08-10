@@ -1,7 +1,7 @@
 ---
 # EN: Server MOTD.
 # ES: MOTD del servidor.
-motd: "§l§o§bxGqboo §r§8- §l§o§fTests§r§f\n§o§l§aONLINE!"
+motd: "§l§o§bxGqboo §r§8- §l§o§fServer§r§f\n§o§l§aONLINE!"
 
 # EN: Message displayed when a player enters the server (use {name} to display the player's name).
 # ES: Mensaje que sale cuando un jugador entra al servidor. (Usa {name} para mostrar el nombre del jugador).
